@@ -186,7 +186,24 @@ extension toDoListViewController: UITableViewDelegate {
         tableView.reloadData()
     }
     
-    
+    func tableView(_ tableView: UITableView,
+                            contextMenuConfigurationForRowAt indexPath: IndexPath,
+                            point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil,
+                                          previewProvider: nil,
+                                          actionProvider: {
+                suggestedActions in
+            
+            let deleteAction =
+                UIAction(title: NSLocalizedString("Удалить задачу", comment: ""),
+                         image: UIImage(systemName: "trash"),
+                         attributes: .destructive) { action in
+                    self.deleteItem(at: indexPath)
+                }
+
+            return UIMenu(title: "", children: [deleteAction])
+        })
+    }   
 }
 
 extension toDoListViewController: UITableViewDataSource {

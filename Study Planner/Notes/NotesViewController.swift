@@ -193,13 +193,13 @@ extension notesViewController: UITableViewDelegate {
                                           actionProvider: {
                 suggestedActions in
             let shareNoteAction =
-                UIAction(title: NSLocalizedString("Share Note", comment: ""),
+                UIAction(title: NSLocalizedString("Поделиться заметкой", comment: ""),
                          image: UIImage(systemName: "square.and.arrow.up")) { action in
                     self.shareNote(at: indexPath.row)
                 }
             
             let deleteAction =
-                UIAction(title: NSLocalizedString("Delete Note", comment: ""),
+                UIAction(title: NSLocalizedString("Удалить заметку", comment: ""),
                          image: UIImage(systemName: "trash"),
                          attributes: .destructive) { action in
                     self.deleteNote(at: indexPath)
